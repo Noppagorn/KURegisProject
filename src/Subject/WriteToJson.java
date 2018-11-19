@@ -13,6 +13,7 @@ public class WriteToJson {
         Gson gson = new Gson();
         try (Writer writer = new FileWriter("src/DataBase/Subject.json")) {
             gson.toJson(json, writer);
+            writer.close();
         } catch (IOException e) {
             e.printStackTrace();
         }

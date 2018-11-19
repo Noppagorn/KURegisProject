@@ -8,7 +8,7 @@ import java.util.NoSuchElementException;
 
 public class ComputerScience implements ScienceSubject{
     private ArrayList<Subject> subjects = null;
-    public ComputerScience(){
+    public void readFromFile(){
         ReadJson readJson = new ReadJson();
         subjects = readJson.readFormFile();
     }
@@ -54,6 +54,13 @@ public class ComputerScience implements ScienceSubject{
             }
         }
         throw new NoSuchElementException("NO " + id + " in Subject");
+    }
+
+    @Override
+    public ArrayList<Subject> getAllSubject() {
+//        ReadJson readJson = new ReadJson();
+//        subjects = readJson.readFormFile();
+        return subjects;
     }
 
 }

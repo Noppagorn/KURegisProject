@@ -13,6 +13,7 @@ public class AllStudent {
         String json = gson.toJson(st);
         try (Writer writer = new FileWriter("src/DataBase/Students.json")) {
             gson.toJson(json, writer);
+            writer.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -25,8 +26,9 @@ public class AllStudent {
             String strJson = gson.fromJson(br, String.class);
             Type founderListType = new TypeToken<ArrayList<Student>>(){}.getType();
             StudentProcess = gson.fromJson(strJson,founderListType);
+            br.close();
             return StudentProcess;
-        } catch (FileNotFoundException e) {
+        } catch (IOException e) {
             e.printStackTrace();
             System.out.println("INVELID FIle");
         }

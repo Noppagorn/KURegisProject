@@ -10,4 +10,5 @@ public interface ScienceSubject {
     public int getSubjectWeight(String id);
     public String[] getSubjectBase(String id);
     public Subject getSubject(String id);
+    public ArrayList<Subject> getAllSubject();
 }
