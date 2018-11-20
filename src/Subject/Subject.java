@@ -20,12 +20,6 @@ public class Subject {
         this.weight = weight;
         this.subjectBase = null;
     }
-    public Subject(){
-        this.code = null;
-        this.name = null;
-        this.weight = 0;
-        this.subjectBase = null;
-    }
 
     public String getCode() {
         return code;

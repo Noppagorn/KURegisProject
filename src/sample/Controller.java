@@ -21,7 +21,7 @@ public class Controller {
 
     @FXML
     TableColumn<Subject,String> nameSubTable;
-    @FXML TableColumn<Subject,String> BaseTable;
+    @FXML TableColumn<Subject, String> BaseTable;
     private ArrayList<Subject> subjects = null;
     public Controller(){
         ComputerScience computerScience = new ComputerScience();
@@ -31,25 +31,18 @@ public class Controller {
     @FXML
     public void initialize(){
         showAllID();
-        showAllName();
-        showAllBase();
     }
 
     private void showAllID(){
-        //subjects = new ArrayList<>();
         ObservableList<Subject> subjectsObs = FXCollections.observableArrayList(this.subjects);
         tableSubject.setItems(subjectsObs);
         idSubject.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().getCode()));
-    }
 
-    private void showAllName(){
-        ObservableList<Subject> subjectsObs = FXCollections.observableArrayList(this.subjects);
+        ObservableList<Subject> subjectsObsname = FXCollections.observableArrayList(this.subjects);
         tableSubject.setItems(subjectsObs);
         nameSubTable.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().getName()));
-    }
 
-    private void showAllBase(){
-        ObservableList<Subject> subjectsObs = FXCollections.observableArrayList(this.subjects);
+        ObservableList<Subject> subjectsObsBase = FXCollections.observableArrayList(this.subjects);
         tableSubject.setItems(subjectsObs);
         BaseTable.setCellValueFactory(param -> new SimpleStringProperty(Integer.toString(param.getValue().getWeight())));
     }
