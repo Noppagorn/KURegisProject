@@ -1,63 +1,58 @@
 package Student;
 
+import Subject.Subject;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.io.*;
 import java.util.ArrayList;
 
 public class Student {
-    private String id;
-    private String name;
-    private int year;
-    ArrayList<StudentRegis> stregis = new ArrayList<StudentRegis>();
+    ArrayList<Subject> subjects = null;
 
-    public Student(String id, String name, int year) {
-        this.id = id;
-        this.name = name;
-        this.year = year;
-    }
-    public void add(StudentRegis stre){
-        this.stregis.add(stre);
-    }
-    public void add(ArrayList<StudentRegis> stre){
-        this.stregis.addAll(stre);
+    public Student(){
+        subjects = new ArrayList<Subject>();
+        subjects.add(new Subject("01418211","java", 3));
+        subjects.remove(0);
+        writeToJson(subjects);
+        readFromJson();
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getYear() {
-        return year;
-    }
-
-    public void setYear(int year) {
-        this.year = year;
-    }
-
-    public ArrayList<StudentRegis> getStregis() {
-        return stregis;
-    }
-
-    @Override
-    public String toString() {
-        String temp = "";
-        temp += "ID : " + id + "\n";
-        temp += "Name : " + name + "\n";
-        for (StudentRegis s: stregis
-             ) {
-            temp += "ID :" + s.getSubject() + " Grade : " + s.getGrade() + " Term : " + s.getTerm();
-            temp += " Years : " + s.getYear() + "\n";
+    public void writeToJson(ArrayList subjects){
+        Gson gson = new Gson();
+        String json = gson.toJson(subjects);
+        try {
+            File newDir = null;
+            newDir = new File("DataBase");
+            newDir.mkdir();
+            PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter("DataBase/StudentJson.json")));
+            pw.println(json);
+            pw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        return temp;
+
+    }
+    public ArrayList<Subject> readFromJson(){
+        Gson gson = new Gson();
+        ArrayList<Subject> tempHash = null;
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader("DataBase/StudentJson.json"));
+            ArrayList<Subject> retMap = new Gson().fromJson(
+                    reader, new TypeToken<ArrayList<Subject>>() {}.getType()
+            );
+            reader.close();
+            return retMap;
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return  null;
+    }
+
+    public ArrayList<Subject> getStrudentSub (){
+        return subjects;
     }
 }

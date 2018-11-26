@@ -14,12 +14,13 @@ public class Subject {
         this.weight = weight;
         this.subjectBase = subjectBase;
     }
-    public Subject(String code, String name, int weigh) {
+    public Subject(String code, String name, int weight) {
         this.code = code;
         this.name = name;
         this.weight = weight;
         this.subjectBase = null;
     }
+
 
     public String getCode() {
         return code;

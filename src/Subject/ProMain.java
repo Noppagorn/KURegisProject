@@ -260,20 +260,18 @@ public class ProMain {
         subjects.add(subject114);
         subjects.add(subject115);
 
-        Gson gson = new Gson();
-        String json = gson.toJson(subjects);
-        WriteToJson writeToJson = new WriteToJson();
-        ReadJson readJson = new ReadJson();
-        try {
-            writeToJson.write(json);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        JsonControlData jdata = new JsonControlData();
+        jdata.writeToJson(subjects);
 
     }
 
     public static void main(String[] args) {
         ProMain proMain = new ProMain();
         proMain.createSubject();
+        JsonControlData jdata = new JsonControlData();
+        for (Subject x: jdata.readFromJson()
+             ) {
+            System.out.println(x);
+        }
     }
 }
