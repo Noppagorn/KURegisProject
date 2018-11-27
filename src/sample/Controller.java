@@ -3,6 +3,7 @@ package sample;
 import Student.Student;
 import Subject.JsonControlData;
 import Subject.Subject;
+import Student.SubjectRegis;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -31,18 +32,22 @@ public class Controller {
     @FXML TableColumn<Subject, String> BaseTable;
 
     @FXML
-    TableView<Subject> stdTable;
+    TableView<SubjectRegis> stdTable;
     @FXML
-    TableColumn<Subject,String> stdCode;
+    TableColumn<SubjectRegis,String> stdYear;
     @FXML
-    TableColumn<Subject,String> stdName;
-    @FXML TableColumn<Subject, String> stdBase;
-    @FXML TableColumn<Subject,String> stdGrade;
+    TableColumn<SubjectRegis,String> stdTerm;
+    @FXML
+    TableColumn<SubjectRegis,String> stdCode;
+    @FXML
+    TableColumn<SubjectRegis,String> stdName;
+    @FXML TableColumn<SubjectRegis, String> stdBase;
+    @FXML TableColumn<SubjectRegis,String> stdGrade;
 
     @FXML
     Button addButton;
     private ArrayList<Subject> subjects = null;
-    private ArrayList<Subject> stdSubject = null;
+    private ArrayList<SubjectRegis> stdSubject = null;
     public Controller(){
         JsonControlData jSubject = new JsonControlData();
         subjects = jSubject.readFromJson();
@@ -72,21 +77,23 @@ public class Controller {
 
     private void tableStudent(){
         upDateStudent();
+        stdYear.setCellValueFactory(param -> new SimpleStringProperty(Integer.toString(param.getValue().getYear())));
+        stdTerm.setCellValueFactory(param -> new SimpleStringProperty(Integer.toString(param.getValue().getTerm())));
         stdCode.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().getCode()));
 
         stdName.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().getName()));
         stdBase.setCellValueFactory(param -> new SimpleStringProperty(Integer.toString(param.getValue().getWeight())));
-        stdGrade.setCellValueFactory(param -> new SimpleStringProperty(Integer.toString(param.getValue().getWeight())));
+        stdGrade.setCellValueFactory(param -> new SimpleStringProperty(Integer.toString(param.getValue().getGrade())));
 
     }
     private void upDateStudent(){
-        ObservableList<Subject> subjectsObs = FXCollections.observableArrayList(stdSubject);
+        ObservableList<SubjectRegis> subjectsObs = FXCollections.observableArrayList(stdSubject);
         stdTable.getItems().clear();
         stdTable.setItems(subjectsObs);
     }
     @FXML
     public void deleteSubjectStudent(ActionEvent event){
-        Subject selectedItem = stdTable.getSelectionModel().getSelectedItem();
+        SubjectRegis selectedItem = stdTable.getSelectionModel().getSelectedItem();
         stdTable.getItems().remove(selectedItem);
         stdSubject.remove(selectedItem);
         Student st = new Student();
@@ -96,17 +103,15 @@ public class Controller {
     @FXML
     public void handleAddButton(ActionEvent event){
             Subject selectedItem = tableSubject.getSelectionModel().getSelectedItem();
-            tableSubject.getItems().remove(selectedItem);
-            stdSubject.add(selectedItem);
+            //tableSubject.getItems().remove(selectedItem);
+            //stdSubject.add(new SubjectRegis(1,1,selectedItem,3));
             try {
                 addChangeScreen(selectedItem);
             } catch (IOException e1) {
                 e1.printStackTrace();
             }
-            subjects.remove(selectedItem);
+            //subjects.remove(selectedItem);
         upDateSubject();
-        Student st = new Student();
-        st.writeToJson(stdSubject);
 
     }
     private void addChangeScreen(Subject selec) throws IOException {
@@ -116,7 +121,7 @@ public class Controller {
         Stage stage = new Stage();
         stage.setScene(new Scene(root1));
         ControlAddPage controller = fxmlLoader.getController();
-        controller.init(selec, this::upDateStudent);
+        controller.init(selec,stdSubject, this::upDateStudent);
         stage.show();
     }
 

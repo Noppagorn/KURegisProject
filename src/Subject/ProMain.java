@@ -179,7 +179,7 @@ public class ProMain {
 
         subjects.add(subject31);
         subjects.add(subject32);
-        subjects.add(subject23);
+        subjects.add(subject33);
         subjects.add(subject34);
         subjects.add(subject35);
         subjects.add(subject36);
@@ -209,6 +209,17 @@ public class ProMain {
         subjects.add(subject58);
         subjects.add(subject59);
         subjects.add(subject60);
+
+        subjects.add(subject61);
+        subjects.add(subject62);
+        subjects.add(subject63);
+        subjects.add(subject64);
+        subjects.add(subject65);
+        subjects.add(subject66);
+        subjects.add(subject67);
+        subjects.add(subject68);
+        subjects.add(subject69);
+        subjects.add(subject70);
 
         subjects.add(subject71);
         subjects.add(subject72);

@@ -45,12 +45,14 @@
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                </columnResizePolicy>
             </TableView>
-            <TableView fx:id="stdTable" editable="true" prefHeight="479.0" prefWidth="422.0" GridPane.columnIndex="5" GridPane.rowIndex="1" GridPane.rowSpan="4">
+            <TableView fx:id="stdTable" editable="true" prefHeight="477.0" prefWidth="278.0" GridPane.columnIndex="5" GridPane.rowIndex="1" GridPane.rowSpan="4">
                <columns>
-                  <TableColumn fx:id="stdCode" minWidth="75.99999749660492" prefWidth="97.99999749660492" resizable="false" text="รหัสวิชา" />
-                  <TableColumn fx:id="stdName" prefWidth="167.33336639404297" resizable="false" text="ชื่อวิชา" />
-                  <TableColumn fx:id="stdBase" minWidth="0.0" prefWidth="78.0" resizable="false" text="หน่วยกิต" />
-                  <TableColumn fx:id="stdGrade" minWidth="0.0" prefWidth="76.66668701171875" resizable="false" text="เกรด" />
+                  <TableColumn fx:id="stdYear" minWidth="47.333253264427185" prefWidth="47.333253264427185" resizable="false" text="ปี" />
+                  <TableColumn fx:id="stdTerm" prefWidth="51.999996185302734" resizable="false" text="เทอม" />
+                  <TableColumn fx:id="stdCode" minWidth="0.0" prefWidth="86.66675567626953" resizable="false" text="รหัสวิชา" />
+                  <TableColumn fx:id="stdName" minWidth="0.0" prefWidth="99.99998474121094" resizable="false" text="ชื่อวิชา" />
+                  <TableColumn fx:id="stdBase" minWidth="0.0" prefWidth="82.0" resizable="false" text="หน่วยกิต" />
+                  <TableColumn fx:id="stdGrade" minWidth="52.6666259765625" prefWidth="52.6666259765625" resizable="false" text="เกรด" />
                </columns>
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

@@ -8,14 +8,17 @@ import java.io.*;
 import java.util.ArrayList;
 
 public class Student {
-    ArrayList<Subject> subjects;
+    ArrayList<SubjectRegis> subjects;
 
     public Student(){
-        subjects = new ArrayList<Subject>();
-        subjects.add(new Subject("01418211","java", 3));
-        subjects.remove(0);
+        subjects = new ArrayList<SubjectRegis>();
+        //subjects.add(new SubjectRegis(1,1,new Subject("01418211","java", 3),3));
         //writeToJson(subjects);
         readFromJson();
+        for (SubjectRegis x: subjects
+             ) {
+            System.out.println(x.getCode());
+        }
     }
 
     public void writeToJson(ArrayList subjects){
@@ -33,13 +36,13 @@ public class Student {
         }
 
     }
-    public ArrayList<Subject> readFromJson(){
+    public ArrayList<SubjectRegis> readFromJson(){
         Gson gson = new Gson();
-        ArrayList<Subject> tempHash = null;
+        ArrayList<SubjectRegis> tempHash = null;
         try {
             BufferedReader reader = new BufferedReader(new FileReader("DataBase/StudentJson.json"));
-            ArrayList<Subject> retMap = new Gson().fromJson(
-                    reader, new TypeToken<ArrayList<Subject>>() {}.getType()
+            ArrayList<SubjectRegis> retMap = new Gson().fromJson(
+                    reader, new TypeToken<ArrayList<SubjectRegis>>() {}.getType()
             );
             reader.close();
             return retMap;
@@ -52,7 +55,7 @@ public class Student {
         return  null;
     }
 
-    public ArrayList<Subject> getStrudentSub (){
+    public ArrayList<SubjectRegis> getStrudentSub (){
         return subjects;
     }
 }
