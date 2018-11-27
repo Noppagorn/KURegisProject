@@ -8,13 +8,13 @@ import java.io.*;
 import java.util.ArrayList;
 
 public class Student {
-    ArrayList<Subject> subjects = null;
+    ArrayList<Subject> subjects;
 
     public Student(){
         subjects = new ArrayList<Subject>();
         subjects.add(new Subject("01418211","java", 3));
         subjects.remove(0);
-        writeToJson(subjects);
+        //writeToJson(subjects);
         readFromJson();
     }
 

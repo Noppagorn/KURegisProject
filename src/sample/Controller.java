@@ -18,6 +18,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class Controller {
 
@@ -52,6 +53,7 @@ public class Controller {
     @FXML
     public void initialize(){
         tableSubject();
+        tableStudent();
     }
 
     private void tableSubject(){
@@ -67,18 +69,40 @@ public class Controller {
         tableSubject.getItems().clear();
         tableSubject.setItems(subjectsObs);
     }
+
+    private void tableStudent(){
+        upDateStudent();
+        stdCode.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().getCode()));
+
+        stdName.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().getName()));
+        stdBase.setCellValueFactory(param -> new SimpleStringProperty(Integer.toString(param.getValue().getWeight())));
+        stdGrade.setCellValueFactory(param -> new SimpleStringProperty(Integer.toString(param.getValue().getWeight())));
+
+    }
+    private void upDateStudent(){
+        ObservableList<Subject> subjectsObs = FXCollections.observableArrayList(stdSubject);
+        stdTable.getItems().clear();
+        stdTable.setItems(subjectsObs);
+    }
     @FXML
     public void handleAddButton(ActionEvent event){
-        final int[] temp = new int[1];
-        addButton.setOnAction(e -> {
+        System.out.println("eeerf");
             Subject selectedItem = tableSubject.getSelectionModel().getSelectedItem();
             tableSubject.getItems().remove(selectedItem);
-            //subjects.remove(selectedItem);
-            upDateSubject();
-        });
+            stdSubject.add(selectedItem);
+            try {
+                addChangeScreen(selectedItem);
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+            subjects.remove(selectedItem);
+        upDateSubject();
+        System.out.println("finnish");
+        Student st = new Student();
+        st.writeToJson(stdSubject);
+
     }
     private void addChangeScreen(Subject selec) throws IOException {
-        System.out.println("xml");
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("AddPage.fxml"));
         Parent root1 = null;
         root1 = (Parent) fxmlLoader.load();
