@@ -44,16 +44,21 @@ public class ControlAddPage {
                 //throw new RuntimeException("Must complete SubjectBase");
                 exceptLabel.setText("Must complete SubjectBase");
             }
+            ifcanRegis();
         }
         else {
-            subjectRegis.add(new SubjectRegis(Integer.parseInt(yearText.getText()), Integer.parseInt(termText.getText()), selecSubject, Integer.parseInt(gradeText.getText())));
-            Student st = new Student();
-            st.writeToJson(subjectRegis);
-            callback.run();
-            Stage stage = (Stage) addButton.getScene().getWindow();
-            stage.close();
-
+            ifcanRegis();
         }
+    }
+
+    private void ifcanRegis(){
+        System.out.println('a');
+        subjectRegis.add(new SubjectRegis(Integer.parseInt(yearText.getText()), Integer.parseInt(termText.getText()), selecSubject, ChangeGradeToInt()));
+        Student st = new Student();
+        st.writeToJson(subjectRegis);
+        callback.run();
+        Stage stage = (Stage) addButton.getScene().getWindow();
+        stage.close();
     }
 
     private boolean checkSubjectBase() {
@@ -65,13 +70,38 @@ public class ControlAddPage {
                 }
             }
         }
-        System.out.println("count "+ count);
-        System.out.println(selecSubject.getSubjectBase().length);
         if (count == selecSubject.getSubjectBase().length){
             return true;
         }
         else {
             return false;
         }
+    }
+    private double ChangeGradeToInt(){
+        if (gradeText.getText().equals("A")){
+            return 4;
+        }
+        else if (gradeText.getText().equals("B+")){
+            return 3.5;
+        }
+        else if (gradeText.getText().equals("B")){
+            return 3;
+        }
+        else if (gradeText.getText().equals("C+")){
+            return 2.5;
+        }
+        else if (gradeText.getText().equals("C")){
+            return 2;
+        }
+        else if (gradeText.getText().equals("D+")){
+            return 1.5;
+        }
+        else if (gradeText.getText().equals("D")){
+            return 1;
+        }
+        else {
+            return 0;
+        }
+
     }
 }

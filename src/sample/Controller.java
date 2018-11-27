@@ -83,7 +83,7 @@ public class Controller {
 
         stdName.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().getName()));
         stdBase.setCellValueFactory(param -> new SimpleStringProperty(Integer.toString(param.getValue().getWeight())));
-        stdGrade.setCellValueFactory(param -> new SimpleStringProperty(Integer.toString(param.getValue().getGrade())));
+        stdGrade.setCellValueFactory(param -> new SimpleStringProperty(Double.toString(param.getValue().getGrade())));
 
     }
     private void upDateStudent(){
