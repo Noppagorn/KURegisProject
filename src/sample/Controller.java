@@ -14,6 +14,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.stage.Stage;
 
@@ -51,7 +52,6 @@ public class Controller {
     public Controller(){
         JsonControlData jSubject = new JsonControlData();
         subjects = jSubject.readFromJson();
-
         Student student = new Student();
         stdSubject = student.readFromJson();
     }
@@ -70,6 +70,7 @@ public class Controller {
 
     }
     private void upDateSubject(){
+
         ObservableList<Subject> subjectsObs = FXCollections.observableArrayList(subjects);
         tableSubject.getItems().clear();
         tableSubject.setItems(subjectsObs);
@@ -77,13 +78,14 @@ public class Controller {
 
     private void tableStudent(){
         upDateStudent();
+
         stdYear.setCellValueFactory(param -> new SimpleStringProperty(Integer.toString(param.getValue().getYear())));
         stdTerm.setCellValueFactory(param -> new SimpleStringProperty(Integer.toString(param.getValue().getTerm())));
         stdCode.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().getCode()));
 
         stdName.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().getName()));
         stdBase.setCellValueFactory(param -> new SimpleStringProperty(Integer.toString(param.getValue().getWeight())));
-        stdGrade.setCellValueFactory(param -> new SimpleStringProperty(Double.toString(param.getValue().getGrade())));
+        stdGrade.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().getGrade()));
 
     }
     private void upDateStudent(){
@@ -96,21 +98,26 @@ public class Controller {
         SubjectRegis selectedItem = stdTable.getSelectionModel().getSelectedItem();
         stdTable.getItems().remove(selectedItem);
         stdSubject.remove(selectedItem);
+
+        subjects.add(selectedItem);
+        new JsonControlData().writeToJson(subjects);
+
         Student st = new Student();
         st.writeToJson(stdSubject);
         upDateStudent();
+        upDateSubject();
     }
     @FXML
     public void handleAddButton(ActionEvent event){
             Subject selectedItem = tableSubject.getSelectionModel().getSelectedItem();
-            //tableSubject.getItems().remove(selectedItem);
+            tableSubject.getItems().remove(selectedItem);
+
             //stdSubject.add(new SubjectRegis(1,1,selectedItem,3));
             try {
                 addChangeScreen(selectedItem);
             } catch (IOException e1) {
                 e1.printStackTrace();
             }
-            //subjects.remove(selectedItem);
         upDateSubject();
 
     }
@@ -121,9 +128,10 @@ public class Controller {
         Stage stage = new Stage();
         stage.setScene(new Scene(root1));
         ControlAddPage controller = fxmlLoader.getController();
-        controller.init(selec,stdSubject, this::upDateStudent);
+        controller.init(selec,stdSubject,subjects,this::upDateStudent,this::upDateSubject);
         stage.show();
     }
+
 
 
 }

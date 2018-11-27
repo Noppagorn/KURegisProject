@@ -3,6 +3,7 @@ package sample;
 import Student.Student;
 import Student.SubjectRegis;
 import Subject.Subject;
+import Subject.JsonControlData;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -13,9 +14,11 @@ import javafx.stage.Stage;
 import java.util.ArrayList;
 
 public class ControlAddPage {
-    Runnable callback;
+    Runnable callbackStd;
+    Runnable callbackSub;
     Subject selecSubject;
     ArrayList<SubjectRegis> subjectRegis;
+    ArrayList<Subject> subjects;
     @FXML
     Label labelSubject;
     @FXML
@@ -29,10 +32,12 @@ public class ControlAddPage {
     Button addButton;
     @FXML Label exceptLabel;
 
-    public void init(Subject selecSubject, ArrayList<SubjectRegis> stdSubject, Runnable callback) {
+    public void init(Subject selecSubject, ArrayList<SubjectRegis> stdSubject,ArrayList<Subject> subjects, Runnable callbackStd,Runnable callbackSub) {
         this.subjectRegis = stdSubject;
         this.selecSubject = selecSubject;
-        this.callback = callback;
+        this.callbackStd = callbackStd;
+        this.subjects = subjects;
+        this.callbackSub = callbackSub;
         labelSubject.setText(selecSubject.getCode() + " : " + selecSubject.getName());
     }
 
@@ -53,10 +58,13 @@ public class ControlAddPage {
 
     private void ifcanRegis(){
         System.out.println('a');
-        subjectRegis.add(new SubjectRegis(Integer.parseInt(yearText.getText()), Integer.parseInt(termText.getText()), selecSubject, ChangeGradeToInt()));
+        subjectRegis.add(new SubjectRegis(Integer.parseInt(yearText.getText()), Integer.parseInt(termText.getText()), selecSubject, gradeText.getText()));
+        subjects.remove(selecSubject);
+        new JsonControlData().writeToJson(subjects);
         Student st = new Student();
         st.writeToJson(subjectRegis);
-        callback.run();
+        callbackSub.run();
+        callbackStd.run();
         Stage stage = (Stage) addButton.getScene().getWindow();
         stage.close();
     }
