@@ -85,8 +85,16 @@ public class Controller {
         stdTable.setItems(subjectsObs);
     }
     @FXML
+    public void deleteSubjectStudent(ActionEvent event){
+        Subject selectedItem = stdTable.getSelectionModel().getSelectedItem();
+        stdTable.getItems().remove(selectedItem);
+        stdSubject.remove(selectedItem);
+        Student st = new Student();
+        st.writeToJson(stdSubject);
+        upDateStudent();
+    }
+    @FXML
     public void handleAddButton(ActionEvent event){
-        System.out.println("eeerf");
             Subject selectedItem = tableSubject.getSelectionModel().getSelectedItem();
             tableSubject.getItems().remove(selectedItem);
             stdSubject.add(selectedItem);
@@ -97,7 +105,6 @@ public class Controller {
             }
             subjects.remove(selectedItem);
         upDateSubject();
-        System.out.println("finnish");
         Student st = new Student();
         st.writeToJson(stdSubject);
 
@@ -109,7 +116,7 @@ public class Controller {
         Stage stage = new Stage();
         stage.setScene(new Scene(root1));
         ControlAddPage controller = fxmlLoader.getController();
-        controller.init(selec, this::upDateSubject);
+        controller.init(selec, this::upDateStudent);
         stage.show();
     }
 

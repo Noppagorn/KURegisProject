@@ -1,6 +1,7 @@
 package sample;
 
 import Subject.Subject;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
@@ -15,5 +16,11 @@ public class ControlAddPage {
         this.selecSubject = selecSubject;
         this.callback = callback;
         labelSubject.setText(selecSubject.getCode() + " : " + selecSubject.getName());
+    }
+
+    @FXML
+    public void handleAddSubject(ActionEvent event){
+
+        callback.run();
     }
 }

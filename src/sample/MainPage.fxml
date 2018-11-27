@@ -57,7 +57,7 @@
                </columnResizePolicy>
             </TableView>
             <Button fx:id="addButton" mnemonicParsing="false" onAction="#handleAddButton" prefHeight="25.0" prefWidth="97.0" text="Add" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="79.0" text="Delete" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+            <Button mnemonicParsing="false" onAction="#deleteSubjectStudent" prefHeight="25.0" prefWidth="79.0" text="Delete" GridPane.columnIndex="3" GridPane.rowIndex="3" />
          </children>
       </GridPane>
    </children>
