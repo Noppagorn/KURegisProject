@@ -45,11 +45,9 @@ public class ControlAddPage {
     public void handleAddSubject(ActionEvent event) {
         if (selecSubject.getSubjectBase() != null){
             if (!checkSubjectBase()){
-                //System.out.println("Must complete SubjectBase");
-                //throw new RuntimeException("Must complete SubjectBase");
                 exceptLabel.setText("Must complete SubjectBase");
             }
-            ifcanRegis();
+            else{ifcanRegis();}
         }
         else {
             ifcanRegis();
@@ -59,8 +57,8 @@ public class ControlAddPage {
     private void ifcanRegis(){
         System.out.println('a');
         subjectRegis.add(new SubjectRegis(Integer.parseInt(yearText.getText()), Integer.parseInt(termText.getText()), selecSubject, gradeText.getText()));
-        subjects.remove(selecSubject);
-        new JsonControlData().writeToJson(subjects);
+//        subjects.remove(selecSubject);
+//        new JsonControlData().writeToJson(subjects);
         Student st = new Student();
         st.writeToJson(subjectRegis);
         callbackSub.run();
@@ -78,6 +76,8 @@ public class ControlAddPage {
                 }
             }
         }
+        System.out.println(count);
+        System.out.println(selecSubject.getSubjectBase().length);
         if (count == selecSubject.getSubjectBase().length){
             return true;
         }

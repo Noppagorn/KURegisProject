@@ -99,8 +99,8 @@ public class Controller {
         stdTable.getItems().remove(selectedItem);
         stdSubject.remove(selectedItem);
 
-        subjects.add(selectedItem);
-        new JsonControlData().writeToJson(subjects);
+//        subjects.add(selectedItem);
+//        new JsonControlData().writeToJson(subjects);
 
         Student st = new Student();
         st.writeToJson(stdSubject);
