@@ -94,7 +94,7 @@ public class Controller {
                         for(Subject x: subjects){
                             if ( x.getCode().equals(item) && x.isCheck()){
                                 //System.out.println(x);
-                                currentRow.setStyle("-fx-background-color:green");
+                                currentRow.setStyle("-fx-background-color:lightgreen");
                                 break;
                             }
                             else {
