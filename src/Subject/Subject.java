@@ -7,20 +7,36 @@ public class Subject {
     private String name;
     private int weight;
     String []subjectBase;
-
-    public Subject(String code, String name, int weight, String[] subjectBase) {
+    private boolean check;
+    private int level;
+    public Subject(String code, String name, int weight,boolean check,int level, String[] subjectBase) {
         this.code = code;
         this.name = name;
         this.weight = weight;
+        this.check = check;
+        this.level = level;
         this.subjectBase = subjectBase;
     }
-    public Subject(String code, String name, int weight) {
+    public Subject(String code, String name, int weight,boolean check,int level) {
         this.code = code;
         this.name = name;
         this.weight = weight;
+        this.check = check;
+        this.level = level;
         this.subjectBase = null;
     }
 
+    public boolean isCheck() {
+        return check;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public void setCheck(boolean check) {
+        this.check = check;
+    }
 
     public String getCode() {
         return code;

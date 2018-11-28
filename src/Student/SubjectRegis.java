@@ -8,21 +8,21 @@ public class SubjectRegis extends Subject {
     private int year;
     private int term;
 
-    public SubjectRegis(int y,int t,String code, String name, int weight, String[] subjectBase, String grade) {
-        super(code, name, weight, subjectBase);
+    public SubjectRegis(int y,int t,String code, String name, int weight,boolean check,int level, String[] subjectBase, String grade) {
+        super(code, name, weight,check,level, subjectBase);
         this.grade = grade;
         term = t;
         year = y;
     }
 
-    public SubjectRegis(int y,int t,String code, String name, int weight, String grade) {
-        super(code, name, weight);
+    public SubjectRegis(int y,int t,String code, String name, int weight,boolean check,int level, String grade) {
+        super(code, name, weight,check,level);
         this.grade = grade;
         term = t;
         year = y;
     }
     public SubjectRegis(int y,int t,Subject subject, String grade) {
-        super(subject.getCode(), subject.getName(), subject.getWeight());
+        super(subject.getCode(), subject.getName(), subject.getWeight(),subject.isCheck(),subject.getLevel());
         this.grade = grade;
         term = t;
         year = y;
