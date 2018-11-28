@@ -47,7 +47,7 @@ public class ControlAddPage {
             if (!checkSubjectBase()){
                 exceptLabel.setText("Must complete SubjectBase");
             }
-            else if (!selecSubject.isCheck()){
+            else if (selecSubject.isCheck()){
                 System.out.println(selecSubject.isCheck());
                 exceptLabel.setText("Don't Regis Twice");
             }
@@ -66,8 +66,8 @@ public class ControlAddPage {
 
     private void ifcanRegis(){
         System.out.println('a');
-        subjectRegis.add(new SubjectRegis(Integer.parseInt(yearText.getText()), Integer.parseInt(termText.getText()), selecSubject, gradeText.getText()));
         selecSubject.setCheck(true);
+        subjectRegis.add(new SubjectRegis(Integer.parseInt(yearText.getText()), Integer.parseInt(termText.getText()), selecSubject, gradeText.getText()));
         new JsonControlData().writeToJson(subjects);
         Student st = new Student();
         st.writeToJson(subjectRegis);
@@ -94,32 +94,5 @@ public class ControlAddPage {
         else {
             return false;
         }
-    }
-    private double ChangeGradeToInt(){
-        if (gradeText.getText().equals("A")){
-            return 4;
-        }
-        else if (gradeText.getText().equals("B+")){
-            return 3.5;
-        }
-        else if (gradeText.getText().equals("B")){
-            return 3;
-        }
-        else if (gradeText.getText().equals("C+")){
-            return 2.5;
-        }
-        else if (gradeText.getText().equals("C")){
-            return 2;
-        }
-        else if (gradeText.getText().equals("D+")){
-            return 1.5;
-        }
-        else if (gradeText.getText().equals("D")){
-            return 1;
-        }
-        else {
-            return 0;
-        }
-
     }
 }

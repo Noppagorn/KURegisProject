@@ -88,21 +88,19 @@ public class Controller {
 
                     TableRow<Subject> currentRow = getTableRow();
 
-                    for(Subject x: subjects){
-                        if (x.isCheck() == false && x.getCode().equals(item)){
-
-                        }
-                    }
 
                     if (!isEmpty()) {
 
                         for(Subject x: subjects){
-                            if (x.isCheck()&& x.getCode().equals(item)){
+                            if ( x.getCode().equals(item) && x.isCheck()){
+                                //System.out.println(x);
                                 currentRow.setStyle("-fx-background-color:green");
+                                break;
+                            }
+                            else {
+                                currentRow.setStyle(null);
                             }
                         }
-//                        System.out.println(item);
-//                        if(item.equals(Integer.toString(3)))
                     }
                 }
             };
