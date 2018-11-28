@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class ProMain {
     public void createSubject(){
         //Math
-        Subject subject1 = new Subject("01417111","Calculus I",3,true,3);
+        Subject subject1 = new Subject("01417111","Calculus I",3,false,3);
         Subject subject2 = new Subject("01417112","Calculus II",3,false,4,new String[] {"01417111"});
         Subject subject3 = new Subject("01417322","Principles of Statics",3,false,3,new String[] {"01417112"});
         Subject subject4 = new Subject("01417322","Introductory Linear Algebra",3,false,2,new String[] {"01417112"});

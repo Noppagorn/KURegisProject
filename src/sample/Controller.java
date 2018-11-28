@@ -73,6 +73,7 @@ public class Controller {
         ObservableList<Subject> subjectsObs = FXCollections.observableArrayList(subjects);
         tableSubject.getItems().clear();
         tableSubject.setItems(subjectsObs);
+        colorOnRow();
     }
 
     private void colorOnRow(){
@@ -96,17 +97,12 @@ public class Controller {
                     if (!isEmpty()) {
 
                         for(Subject x: subjects){
-                            if (x.isCheck() == false && x.getCode().equals(item)){
+                            if (x.isCheck()&& x.getCode().equals(item)){
                                 currentRow.setStyle("-fx-background-color:green");
                             }
-                            if (x.isCheck() == true && x.getCode().equals(item)){
-                                currentRow.setStyle("-fx-background-color:red");
-                            }
                         }
-
 //                        System.out.println(item);
 //                        if(item.equals(Integer.toString(3)))
-
                     }
                 }
             };
@@ -136,10 +132,13 @@ public class Controller {
         SubjectRegis selectedItem = stdTable.getSelectionModel().getSelectedItem();
         stdTable.getItems().remove(selectedItem);
         stdSubject.remove(selectedItem);
-
+        for(Subject x:subjects){
+            if (x.getCode().equals(selectedItem.getCode())){
+                x.setCheck(false);
+            }
+        }
 //        subjects.add(selectedItem);
-//        new JsonControlData().writeToJson(subjects);
-
+        new JsonControlData().writeToJson(subjects);
         Student st = new Student();
         st.writeToJson(stdSubject);
         upDateStudent();

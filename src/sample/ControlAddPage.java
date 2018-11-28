@@ -47,18 +47,28 @@ public class ControlAddPage {
             if (!checkSubjectBase()){
                 exceptLabel.setText("Must complete SubjectBase");
             }
+            else if (!selecSubject.isCheck()){
+                System.out.println(selecSubject.isCheck());
+                exceptLabel.setText("Don't Regis Twice");
+            }
             else{ifcanRegis();}
         }
         else {
-            ifcanRegis();
+            if (selecSubject.isCheck()){
+                System.out.println(selecSubject.isCheck());
+                exceptLabel.setText("Don't Regis Twice");
+            }
+            else {
+                ifcanRegis();
+            }
         }
     }
 
     private void ifcanRegis(){
         System.out.println('a');
         subjectRegis.add(new SubjectRegis(Integer.parseInt(yearText.getText()), Integer.parseInt(termText.getText()), selecSubject, gradeText.getText()));
-//        subjects.remove(selecSubject);
-//        new JsonControlData().writeToJson(subjects);
+        selecSubject.setCheck(true);
+        new JsonControlData().writeToJson(subjects);
         Student st = new Student();
         st.writeToJson(subjectRegis);
         callbackSub.run();
