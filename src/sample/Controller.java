@@ -12,10 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableRow;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -59,11 +56,13 @@ public class Controller {
     public void initialize(){
         tableSubject();
         tableStudent();
+        colorOnRow();
     }
 
     private void tableSubject(){
         upDateSubject();
         idSubject.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().getCode()));
+        //idSubject.setStyle("-fx-background-color:lightcoral");
 
         nameSubTable.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().getName()));
         BaseTable.setCellValueFactory(param -> new SimpleStringProperty(Integer.toString(param.getValue().getWeight())));
@@ -75,6 +74,45 @@ public class Controller {
         tableSubject.getItems().clear();
         tableSubject.setItems(subjectsObs);
     }
+
+    private void colorOnRow(){
+        idSubject.setCellFactory(column -> {
+            return new TableCell<Subject, String>() {
+                @Override
+                protected void updateItem(String item, boolean empty) {
+                    super.updateItem(item, empty);
+
+                    setText(empty ? "" : getItem().toString());
+                    setGraphic(null);
+
+                    TableRow<Subject> currentRow = getTableRow();
+
+                    for(Subject x: subjects){
+                        if (x.isCheck() == false && x.getCode().equals(item)){
+
+                        }
+                    }
+
+                    if (!isEmpty()) {
+
+                        for(Subject x: subjects){
+                            if (x.isCheck() == false && x.getCode().equals(item)){
+                                currentRow.setStyle("-fx-background-color:green");
+                            }
+                            if (x.isCheck() == true && x.getCode().equals(item)){
+                                currentRow.setStyle("-fx-background-color:red");
+                            }
+                        }
+
+//                        System.out.println(item);
+//                        if(item.equals(Integer.toString(3)))
+
+                    }
+                }
+            };
+        });
+    }
+
 
     private void tableStudent(){
         upDateStudent();
