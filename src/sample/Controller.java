@@ -93,13 +93,46 @@ public class Controller {
 
                         for(Subject x: subjects){
                             if ( x.getCode().equals(item) && x.isCheck()){
-                                //System.out.println(x);
                                 currentRow.setStyle("-fx-background-color:lightgreen");
+                                break;
+                            }
+                            else if (x.getCode().equals(item) && x.getLevel() == 1){
+                                currentRow.setStyle("-fx-background-color:lightblue");
+                                break;
+                            }
+                            else if (x.getCode().equals(item) && x.getLevel() == 2){
+                                currentRow.setStyle("-fx-background-color:blue");
+                                break;
+                            }
+                            else if (x.getCode().equals(item) && x.getLevel() == 3){
+                                currentRow.setStyle("-fx-background-color:yellow");
+                                break;
+                            }
+                            else if (x.getCode().equals(item) && x.getLevel() == 4){
+                                currentRow.setStyle("-fx-background-color:red");
                                 break;
                             }
                             else {
                                 currentRow.setStyle(null);
                             }
+//                                    currentRow.setStyle("-fx-background-color:green");
+//                                }
+//                            else {
+//                                //currentRow.setStyle(null);
+//                                if (x.getCode().equals(item) && x.getLevel() == 1){
+//                                    currentRow.setStyle("-fx-background-color:green");
+//                                }
+//                                else if (x.getLevel() == 2){
+//                                    currentRow.setStyle("-fx-background-color:yellow");
+//                                }
+//                                else if (x.getLevel() == 3){
+//                                    System.out.println(x);
+//                                    currentRow.setStyle("-fx-background-color:lightcoral");
+//                                }
+//                                else if (x.getLevel() == 4){
+//                                    currentRow.setStyle("-fx-background-color:red");
+//                                }
+//                            }
                         }
                     }
                 }
