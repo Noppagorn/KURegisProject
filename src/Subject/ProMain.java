@@ -269,18 +269,7 @@ public class ProMain {
         subjects.add(subject113);
         subjects.add(subject114);
         return subjects;
-//        JsonControlData jdata = new JsonControlData();
-//        jdata.writeToJson(subjects);
 
     }
 
-//    public static void main(String[] args) {
-//        ProMain proMain = new ProMain();
-//        proMain.createSubject();
-////        JsonControlData jdata = new JsonControlData();
-////        for (Subject x: jdata.readFromJson()
-////             ) {
-////            System.out.println(x);
-////        }
-//    }
 }

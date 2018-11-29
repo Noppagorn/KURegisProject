@@ -53,7 +53,6 @@ public class Controller {
         Student student = new Student();
 
         try {
-            System.out.println(jSubject.checkFileExist());
             if (!jSubject.checkFileExist()){
                 subjects = proMain.createSubject();
                 jSubject.writeToJson(subjects);
@@ -67,7 +66,6 @@ public class Controller {
             System.out.println(e);
         }
         try {
-            System.out.println(jSubject.checkFileExist());
             if (!student.checkFileExist()){
                 stdSubject = new  ArrayList<>();
                 student.writeToJson(stdSubject);
@@ -170,6 +168,7 @@ public class Controller {
     @FXML
     public void deleteSubjectStudent(ActionEvent event){
         SubjectRegis selectedItem = stdTable.getSelectionModel().getSelectedItem();
+        if (selectedItem == null) return;
         stdTable.getItems().remove(selectedItem);
         stdSubject.remove(selectedItem);
         for(Subject x:subjects){
@@ -186,6 +185,7 @@ public class Controller {
     @FXML
     public void handleAddButton(ActionEvent event){
             Subject selectedItem = tableSubject.getSelectionModel().getSelectedItem();
+            if (selectedItem == null) return;
             tableSubject.getItems().remove(selectedItem);
             try {
                 addChangeScreen(selectedItem);
