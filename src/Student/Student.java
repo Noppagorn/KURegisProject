@@ -12,17 +12,14 @@ import java.util.ArrayList;
 public class Student {
     ArrayList<SubjectRegis> subjects;
     private String fileSep = System.getProperty("file.separator");
-    public Student(){
-
-    }
 
     public void writeToJson(ArrayList subjects){
         Gson gson = new Gson();
         String json = gson.toJson(subjects);
         try {
-//            File newDir = null;
-//            newDir = new File(getPathJarFile()+fileSep+"DataBase");
-//            newDir.mkdir();
+            File newDir = null;
+            newDir = new File(getPathJarFile()+fileSep+"DataBase");
+            newDir.mkdir();
             PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(getPathJarFile()+fileSep+"DataBase/StudentJson.json")));
             pw.println(json);
             pw.close();

@@ -19,7 +19,6 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
-import java.util.concurrent.atomic.AtomicReference;
 
 public class Controller {
 
@@ -51,14 +50,11 @@ public class Controller {
     public Controller(){
         JsonControlData jSubject = new JsonControlData();
         ProMain proMain = new ProMain();
-        //subjects = jSubject.readFromJson();
         Student student = new Student();
-        //stdSubject = student.readFromJson();
 
         try {
             System.out.println(jSubject.checkFileExist());
             if (!jSubject.checkFileExist()){
-                System.out.println("df");
                 subjects = proMain.createSubject();
                 jSubject.writeToJson(subjects);
                 proMain.createSubject();
@@ -68,13 +64,11 @@ public class Controller {
                 subjects = jSubject.readFromJson();
             }
         } catch (UnsupportedEncodingException e) {
-            //e.printStackTrace();
             System.out.println(e);
         }
         try {
             System.out.println(jSubject.checkFileExist());
             if (!student.checkFileExist()){
-                System.out.println("df");
                 stdSubject = new  ArrayList<>();
                 student.writeToJson(stdSubject);
                 stdSubject = student.readFromJson();
@@ -96,7 +90,6 @@ public class Controller {
     private void tableSubject(){
         upDateSubject();
         idSubject.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().getCode()));
-        //idSubject.setStyle("-fx-background-color:lightcoral");
 
         nameSubTable.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().getName()));
         BaseTable.setCellValueFactory(param -> new SimpleStringProperty(Integer.toString(param.getValue().getWeight())));
@@ -131,42 +124,24 @@ public class Controller {
                                 break;
                             }
                             else if (x.getCode().equals(item) && x.getLevel() == 1){
-                                currentRow.setStyle("-fx-background-color:lightblue");
+                                currentRow.setStyle("-fx-background-color:#ffb075");
                                 break;
                             }
                             else if (x.getCode().equals(item) && x.getLevel() == 2){
-                                currentRow.setStyle("-fx-background-color:blue");
+                                currentRow.setStyle("-fx-background-color:#ff6042");
                                 break;
                             }
                             else if (x.getCode().equals(item) && x.getLevel() == 3){
-                                currentRow.setStyle("-fx-background-color:yellow");
+                                currentRow.setStyle("-fx-background-color:red");
                                 break;
                             }
                             else if (x.getCode().equals(item) && x.getLevel() == 4){
-                                currentRow.setStyle("-fx-background-color:red");
+                                currentRow.setStyle("-fx-background-color:firebrick");
                                 break;
                             }
                             else {
                                 currentRow.setStyle(null);
                             }
-//                                    currentRow.setStyle("-fx-background-color:green");
-//                                }
-//                            else {
-//                                //currentRow.setStyle(null);
-//                                if (x.getCode().equals(item) && x.getLevel() == 1){
-//                                    currentRow.setStyle("-fx-background-color:green");
-//                                }
-//                                else if (x.getLevel() == 2){
-//                                    currentRow.setStyle("-fx-background-color:yellow");
-//                                }
-//                                else if (x.getLevel() == 3){
-//                                    System.out.println(x);
-//                                    currentRow.setStyle("-fx-background-color:lightcoral");
-//                                }
-//                                else if (x.getLevel() == 4){
-//                                    currentRow.setStyle("-fx-background-color:red");
-//                                }
-//                            }
                         }
                     }
                 }
@@ -202,7 +177,6 @@ public class Controller {
                 x.setCheck(false);
             }
         }
-//        subjects.add(selectedItem);
         new JsonControlData().writeToJson(subjects);
         Student st = new Student();
         st.writeToJson(stdSubject);
@@ -213,8 +187,6 @@ public class Controller {
     public void handleAddButton(ActionEvent event){
             Subject selectedItem = tableSubject.getSelectionModel().getSelectedItem();
             tableSubject.getItems().remove(selectedItem);
-
-            //stdSubject.add(new SubjectRegis(1,1,selectedItem,3));
             try {
                 addChangeScreen(selectedItem);
             } catch (IOException e1) {
