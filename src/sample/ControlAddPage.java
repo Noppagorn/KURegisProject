@@ -4,11 +4,10 @@ import Student.Student;
 import Student.SubjectRegis;
 import Subject.Subject;
 import Subject.JsonControlData;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
@@ -22,15 +21,18 @@ public class ControlAddPage {
     @FXML
     Label labelSubject;
     @FXML
-    TextField yearText;
+    ChoiceBox yearBox;
     @FXML
-    TextField termText;
+    ChoiceBox termBox;
     @FXML
-    TextField gradeText;
+    ChoiceBox gradeBox;
 
     @FXML
     Button addButton;
     @FXML Label exceptLabel;
+
+    public ControlAddPage(){
+    }
 
     public void init(Subject selecSubject, ArrayList<SubjectRegis> stdSubject,ArrayList<Subject> subjects, Runnable callbackStd,Runnable callbackSub) {
         this.subjectRegis = stdSubject;
@@ -39,6 +41,17 @@ public class ControlAddPage {
         this.subjects = subjects;
         this.callbackSub = callbackSub;
         labelSubject.setText(selecSubject.getCode() + " : " + selecSubject.getName());
+
+        gradeBox.setItems(FXCollections.observableArrayList(
+                "A","B+", "B","C+", "C","D+", "D","F")
+        );
+        termBox.setItems(FXCollections.observableArrayList(
+                "1","2")
+        );
+
+        yearBox.setItems(FXCollections.observableArrayList(
+                "1","2","3","4")
+        );
     }
 
     @FXML
@@ -67,7 +80,7 @@ public class ControlAddPage {
     private void ifcanRegis(){
         System.out.println('a');
         selecSubject.setCheck(true);
-        subjectRegis.add(new SubjectRegis(Integer.parseInt(yearText.getText()), Integer.parseInt(termText.getText()), selecSubject, gradeText.getText()));
+        subjectRegis.add(new SubjectRegis(Integer.parseInt(yearBox.getValue().toString()), Integer.parseInt(termBox.getValue().toString()), selecSubject, gradeBox.getValue().toString()));
         new JsonControlData().writeToJson(subjects);
         Student st = new Student();
         st.writeToJson(subjectRegis);
