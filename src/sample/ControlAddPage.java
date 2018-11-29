@@ -58,18 +58,18 @@ public class ControlAddPage {
     public void handleAddSubject(ActionEvent event) {
         if (selecSubject.getSubjectBase() != null){
             if (!checkSubjectBase()){
-                exceptLabel.setText("Must complete SubjectBase");
+                exceptLabel.setText("ยังไม่ได้ลงวิชาพื้นฐาน");
             }
             else if (selecSubject.isCheck()){
                 System.out.println(selecSubject.isCheck());
-                exceptLabel.setText("Don't Regis Twice");
+                exceptLabel.setText("วิชา นี้ ลงทะเบียนไปแล้ว");
             }
             else{ifcanRegis();}
         }
         else {
             if (selecSubject.isCheck()){
                 System.out.println(selecSubject.isCheck());
-                exceptLabel.setText("Don't Regis Twice");
+                exceptLabel.setText("วิชา นี้ ลงทะเบียนไปแล้ว");
             }
             else {
                 ifcanRegis();
