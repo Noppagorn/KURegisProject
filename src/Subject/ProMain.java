@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class ProMain {
-    public void createSubject(){
+    public ArrayList<Subject> createSubject(){
         //Math
         Subject subject1 = new Subject("01417111","Calculus I",3,false,3);
         Subject subject2 = new Subject("01417112","Calculus II",3,false,4,new String[] {"01417111"});
@@ -268,19 +268,19 @@ public class ProMain {
         subjects.add(subject112);
         subjects.add(subject113);
         subjects.add(subject114);
-
-        JsonControlData jdata = new JsonControlData();
-        jdata.writeToJson(subjects);
+        return subjects;
+//        JsonControlData jdata = new JsonControlData();
+//        jdata.writeToJson(subjects);
 
     }
 
-    public static void main(String[] args) {
-        ProMain proMain = new ProMain();
-        proMain.createSubject();
-        JsonControlData jdata = new JsonControlData();
-        for (Subject x: jdata.readFromJson()
-             ) {
-            System.out.println(x);
-        }
-    }
+//    public static void main(String[] args) {
+//        ProMain proMain = new ProMain();
+//        proMain.createSubject();
+////        JsonControlData jdata = new JsonControlData();
+////        for (Subject x: jdata.readFromJson()
+////             ) {
+////            System.out.println(x);
+////        }
+//    }
 }

@@ -8,10 +8,16 @@
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataBase/StudentJson.json" beforeDir="false" afterPath="$PROJECT_DIR$/DataBase/StudentJson.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataBase/SubjectJson.json" beforeDir="false" afterPath="$PROJECT_DIR$/DataBase/SubjectJson.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SubjectProject2/Student/Student$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SubjectProject2/Student/Student$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SubjectProject2/Student/Student.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SubjectProject2/Student/Student.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SubjectProject2/Subject/JsonControlData$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SubjectProject2/Subject/JsonControlData$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SubjectProject2/Subject/JsonControlData.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SubjectProject2/Subject/JsonControlData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SubjectProject2/Subject/ProMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SubjectProject2/Subject/ProMain.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SubjectProject2/sample/Controller$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SubjectProject2/sample/Controller$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SubjectProject2/sample/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SubjectProject2/sample/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Student/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Student/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Subject/JsonControlData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Subject/JsonControlData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Subject/ProMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Subject/ProMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Controller.java" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
@@ -68,9 +74,9 @@
     <session id="-1577947032">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="25" />
+          <entry key="project.closed" value="27" />
           <entry key="project.open.time.0" value="1" />
-          <entry key="project.open.time.1" value="10" />
+          <entry key="project.open.time.1" value="12" />
           <entry key="project.open.time.10" value="2" />
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.12" value="1" />
@@ -78,33 +84,33 @@
           <entry key="project.open.time.7" value="3" />
           <entry key="project.open.time.8" value="6" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="26" />
+          <entry key="project.opened" value="28" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="fxml" value="11" />
-          <entry key="java" value="52" />
-          <entry key="json" value="23" />
+          <entry key="java" value="53" />
+          <entry key="json" value="28" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="52" />
-          <entry key="JSON" value="23" />
+          <entry key="JAVA" value="53" />
+          <entry key="JSON" value="28" />
           <entry key="XML" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="fxml" value="3" />
-          <entry key="java" value="4865" />
+          <entry key="java" value="4961" />
           <entry key="json" value="22" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="4865" />
+          <entry key="JAVA" value="4961" />
           <entry key="JSON" value="22" />
           <entry key="XML" value="3" />
         </counts>
@@ -117,22 +123,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sample/ControlAddPage.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1224">
-              <caret line="82" column="88" selection-start-line="82" selection-start-column="88" selection-end-line="82" selection-end-column="88" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Subject/ProMain.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="8" column="32" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
+            <state relative-caret-position="4539">
+              <caret line="270" column="24" selection-start-line="270" selection-start-column="24" selection-end-line="270" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -146,11 +140,20 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Student/Student.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="14" column="21" lean-forward="true" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
+            <state relative-caret-position="153">
+              <caret line="13" selection-start-line="13" selection-end-line="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -161,8 +164,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Subject/JsonControlData.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="16" column="27" selection-start-line="31" selection-start-column="32" selection-end-line="31" selection-end-column="41" />
+            <state relative-caret-position="816">
+              <caret line="55" column="63" selection-start-line="55" selection-start-column="55" selection-end-line="55" selection-end-column="63" />
             </state>
           </provider>
         </entry>
@@ -194,36 +197,24 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DataBase/SubjectJson.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" selection-start-line="1" selection-end-line="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/sample/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="108" column="38" lean-forward="true" selection-start-line="108" selection-start-column="38" selection-end-line="108" selection-end-column="38" />
+            <state relative-caret-position="663">
+              <caret line="58" column="54" selection-start-line="58" selection-start-column="40" selection-end-line="58" selection-end-column="54" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2451#4600#0" expanded="true" />
-                <element signature="e#4599#4600#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sample/AddPage.fxml">
+        <entry file="file://$PROJECT_DIR$/DataBase/SubjectJson.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="986">
-              <caret line="58" selection-start-line="58" selection-end-line="58" />
+            <state relative-caret-position="17">
+              <caret line="1" selection-start-line="1" selection-end-line="1" />
             </state>
           </provider>
-          <provider editor-type-id="JavaFX-Scene-Builder" />
         </entry>
       </file>
     </leaf>
@@ -251,22 +242,22 @@
         <option value="$PROJECT_DIR$/src/Combine/ComScienceStudent.java" />
         <option value="$PROJECT_DIR$/src/Subject/WriteToJson.java" />
         <option value="$PROJECT_DIR$/src/Subject/ReadJson.java" />
-        <option value="$PROJECT_DIR$/src/Subject/JsonControlData.java" />
         <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/Combine/ComputerScience.java" />
         <option value="$PROJECT_DIR$/src/sample/AddPage.fxml" />
         <option value="$PROJECT_DIR$/src/sample/Main.java" />
         <option value="$PROJECT_DIR$/src/Student/StudentRegis.java" />
         <option value="$PROJECT_DIR$/src/Student/AllStudent.java" />
-        <option value="$PROJECT_DIR$/src/Student/Student.java" />
         <option value="$PROJECT_DIR$/src/DataBase/Subject.json" />
         <option value="$PROJECT_DIR$/src/Subject/Subject.java" />
         <option value="$PROJECT_DIR$/src/Student/SubjectRegis.java" />
         <option value="$PROJECT_DIR$/DataBase/StudentJson.json" />
         <option value="$PROJECT_DIR$/src/sample/ControlAddPage.java" />
-        <option value="$PROJECT_DIR$/src/Subject/ProMain.java" />
         <option value="$PROJECT_DIR$/DataBase/SubjectJson.json" />
+        <option value="$PROJECT_DIR$/src/Subject/ProMain.java" />
         <option value="$PROJECT_DIR$/src/sample/Controller.java" />
+        <option value="$PROJECT_DIR$/src/Subject/JsonControlData.java" />
+        <option value="$PROJECT_DIR$/src/Student/Student.java" />
       </list>
     </option>
   </component>
@@ -277,7 +268,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="x" value="-9" />
     <option name="y" value="6" />
     <option name="width" value="1938" />
@@ -292,20 +283,13 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
-      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="SubjectProject2" type="b2602c69:ProjectViewProjectNode" />
               <item name="SubjectProject2" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SubjectProject2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SubjectProject2" type="462c0819:PsiDirectoryNode" />
-              <item name="DataBase" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SubjectProject2" type="b2602c69:ProjectViewProjectNode" />
@@ -358,6 +342,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -370,7 +356,7 @@
     <property name="OverrideImplement.combined" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543464071871" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543468164809" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../Lab09" />
     <property name="project.structure.last.edited" value="Artifacts" />
@@ -535,18 +521,20 @@
       <workItem from="1543407216409" duration="2975000" />
       <workItem from="1543415157117" duration="315000" />
       <workItem from="1543460193381" duration="2581000" />
-      <workItem from="1543464853611" duration="327000" />
+      <workItem from="1543464853611" duration="453000" />
+      <workItem from="1543466708389" duration="1448000" />
+      <workItem from="1543468562170" duration="452000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="69837000" />
+    <option name="totallyTimeSpent" value="71863000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
+    <frame x="-6" y="4" width="1292" height="684" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.31012145" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.32224026" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" />
       <window_info id="Designer" order="3" />
@@ -555,7 +543,7 @@
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32667875" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3291815" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.33575317" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39927405" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -626,6 +614,18 @@
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-field">
+          <url>file://$PROJECT_DIR$/src/sample/Controller.java</url>
+          <line>49</line>
+          <properties field="stdSubject" class="sample.Controller" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
@@ -668,10 +668,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="155">
           <caret line="74" column="5" lean-forward="true" selection-start-line="74" selection-start-column="5" selection-end-line="74" selection-end-column="5" />
-          <folding>
-            <element signature="e#1223#1224#0" expanded="true" />
-            <element signature="e#1285#1286#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -689,13 +685,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Student/Student.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-335">
-          <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/DataBase/Students.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -709,10 +698,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/AddPage.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="986">
+          <caret line="58" selection-start-line="58" selection-end-line="58" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/production/DataBase/SubjectJson.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/production/DataBase/StudentJson.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Subject/ProMain.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="8" column="32" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
+        <state relative-caret-position="4539">
+          <caret line="270" column="24" selection-start-line="270" selection-start-column="24" selection-end-line="270" selection-end-column="24" />
         </state>
       </provider>
     </entry>
@@ -725,8 +728,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
+        <state relative-caret-position="153">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -735,8 +738,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Subject/JsonControlData.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="16" column="27" selection-start-line="31" selection-start-column="32" selection-end-line="31" selection-end-column="41" />
+        <state relative-caret-position="816">
+          <caret line="55" column="63" selection-start-line="55" selection-start-column="55" selection-end-line="55" selection-end-column="63" />
         </state>
       </provider>
     </entry>
@@ -762,6 +765,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="58" column="54" selection-start-line="58" selection-start-column="40" selection-end-line="58" selection-end-column="54" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/DataBase/SubjectJson.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -769,23 +782,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/AddPage.fxml">
+    <entry file="file://$PROJECT_DIR$/src/Student/Student.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="986">
-          <caret line="58" selection-start-line="58" selection-end-line="58" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="108" column="38" lean-forward="true" selection-start-line="108" selection-start-column="38" selection-end-line="108" selection-end-column="38" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2451#4600#0" expanded="true" />
-            <element signature="e#4599#4600#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="119">
+          <caret line="14" column="21" lean-forward="true" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
         </state>
       </provider>
     </entry>

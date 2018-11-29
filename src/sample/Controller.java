@@ -3,6 +3,7 @@ package sample;
 import Student.Student;
 import Subject.JsonControlData;
 import Subject.Subject;
+import Subject.ProMain;
 import Student.SubjectRegis;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -16,6 +17,7 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicReference;
 
@@ -48,9 +50,41 @@ public class Controller {
     private ArrayList<SubjectRegis> stdSubject = null;
     public Controller(){
         JsonControlData jSubject = new JsonControlData();
-        subjects = jSubject.readFromJson();
+        ProMain proMain = new ProMain();
+        //subjects = jSubject.readFromJson();
         Student student = new Student();
-        stdSubject = student.readFromJson();
+        //stdSubject = student.readFromJson();
+
+        try {
+            System.out.println(jSubject.checkFileExist());
+            if (!jSubject.checkFileExist()){
+                System.out.println("df");
+                subjects = proMain.createSubject();
+                jSubject.writeToJson(subjects);
+                proMain.createSubject();
+                subjects = jSubject.readFromJson();
+            }else
+            {
+                subjects = jSubject.readFromJson();
+            }
+        } catch (UnsupportedEncodingException e) {
+            //e.printStackTrace();
+            System.out.println(e);
+        }
+        try {
+            System.out.println(jSubject.checkFileExist());
+            if (!student.checkFileExist()){
+                System.out.println("df");
+                stdSubject = new  ArrayList<>();
+                student.writeToJson(stdSubject);
+                stdSubject = student.readFromJson();
+            }else
+            {
+                stdSubject = student.readFromJson();
+            }
+        } catch (UnsupportedEncodingException e) {
+            System.out.println(e);
+        }
     }
     @FXML
     public void initialize(){

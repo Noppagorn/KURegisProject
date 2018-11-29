@@ -5,30 +5,25 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.*;
+import java.net.URL;
+import java.net.URLDecoder;
 import java.util.ArrayList;
 
 public class Student {
     ArrayList<SubjectRegis> subjects;
-
+    private String fileSep = System.getProperty("file.separator");
     public Student(){
-        subjects = new ArrayList<SubjectRegis>();
-        //subjects.add(new SubjectRegis(1,1,new Subject("01418211","java", 3),3));
-        //writeToJson(subjects);
-        readFromJson();
-        for (SubjectRegis x: subjects
-             ) {
-            System.out.println(x.getCode());
-        }
+
     }
 
     public void writeToJson(ArrayList subjects){
         Gson gson = new Gson();
         String json = gson.toJson(subjects);
         try {
-            File newDir = null;
-            newDir = new File("DataBase");
-            newDir.mkdir();
-            PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter("DataBase/StudentJson.json")));
+//            File newDir = null;
+//            newDir = new File(getPathJarFile()+fileSep+"DataBase");
+//            newDir.mkdir();
+            PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(getPathJarFile()+fileSep+"DataBase/StudentJson.json")));
             pw.println(json);
             pw.close();
         } catch (IOException e) {
@@ -40,7 +35,7 @@ public class Student {
         Gson gson = new Gson();
         ArrayList<SubjectRegis> tempHash = null;
         try {
-            BufferedReader reader = new BufferedReader(new FileReader("DataBase/StudentJson.json"));
+            BufferedReader reader = new BufferedReader(new FileReader(getPathJarFile()+fileSep+"DataBase/StudentJson.json"));
             ArrayList<SubjectRegis> retMap = new Gson().fromJson(
                     reader, new TypeToken<ArrayList<SubjectRegis>>() {}.getType()
             );
@@ -57,5 +52,16 @@ public class Student {
 
     public ArrayList<SubjectRegis> getStrudentSub (){
         return subjects;
+    }
+    private static String getPathJarFile() throws UnsupportedEncodingException {
+        URL url = Student.class.getProtectionDomain().getCodeSource().getLocation();
+        String jarpath = URLDecoder.decode(url.getFile(),"UTF-8");
+        String parentPath = new File(jarpath).getParentFile().getPath();
+        return parentPath;
+    }
+
+    public boolean checkFileExist() throws UnsupportedEncodingException {
+        File file = new File(getPathJarFile()+fileSep+"DataBase/StudentJson.json");
+        return file.exists();
     }
 }
