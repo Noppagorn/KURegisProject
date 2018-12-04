@@ -64,7 +64,9 @@ public class ControlAddPage {
                 System.out.println(selecSubject.isCheck());
                 exceptLabel.setText("วิชา นี้ ลงทะเบียนไปแล้ว");
             }
-            else{ifcanRegis();}
+            else{
+                ifcanRegis();
+            }
         }
         else {
             if (selecSubject.isCheck()){
@@ -78,7 +80,10 @@ public class ControlAddPage {
     }
 
     private void ifcanRegis(){
-        System.out.println('a');
+        if (!checkOrderSubject()){
+            exceptLabel.setText("เวลารายวิชา ไม่ถูกต้อง");
+            return;
+        }
         selecSubject.setCheck(true);
         subjectRegis.add(new SubjectRegis(Integer.parseInt(yearBox.getValue().toString()), Integer.parseInt(termBox.getValue().toString()), selecSubject, gradeBox.getValue().toString()));
         new JsonControlData().writeToJson(subjects);
@@ -107,5 +112,27 @@ public class ControlAddPage {
         else {
             return false;
         }
+    }
+
+    private boolean checkOrderSubject(){
+        if (selecSubject.getSubjectBase() == null){
+            return true;
+        }
+        int len = selecSubject.getSubjectBase().length;
+        int count = 0;
+        for (String x: selecSubject.getSubjectBase()) {
+            for (SubjectRegis y : subjectRegis){
+                if (y.getCode().equals(x)){
+                    if (y.getYear() < Integer.parseInt(yearBox.getValue().toString())){
+                        count++;
+                    }
+                    else if (y.getYear() ==  Integer.parseInt(yearBox.getValue().toString()) && y.getTerm() > Integer.parseInt(termBox.getValue().toString())){
+                        count++;
+                    }
+                }
+            }
+        }
+        if (count == len) return true;
+        else  return false;
     }
 }
