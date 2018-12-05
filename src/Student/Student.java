@@ -29,8 +29,6 @@ public class Student {
 
     }
     public ArrayList<SubjectRegis> readFromJson(){
-        Gson gson = new Gson();
-        ArrayList<SubjectRegis> tempHash = null;
         try {
             BufferedReader reader = new BufferedReader(new FileReader(getPathJarFile()+fileSep+"DataBase/StudentJson.json"));
             ArrayList<SubjectRegis> retMap = new Gson().fromJson(

@@ -28,9 +28,6 @@ public class SubjectRegis extends Subject {
         year = y;
     }
 
-    public Subject getSubject() {
-        return subject;
-    }
 
     public String getGrade() {
         return grade;

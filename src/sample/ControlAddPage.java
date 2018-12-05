@@ -104,8 +104,6 @@ public class ControlAddPage {
                 }
             }
         }
-        System.out.println(count);
-        System.out.println(selecSubject.getSubjectBase().length);
         if (count == selecSubject.getSubjectBase().length){
             return true;
         }

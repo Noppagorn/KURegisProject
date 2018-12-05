@@ -27,8 +27,6 @@ public class JsonControlData {
 
     }
     public ArrayList<Subject> readFromJson(){
-        Gson gson = new Gson();
-        ArrayList<Subject> tempHash = null;
         try {
             BufferedReader reader = new BufferedReader(new FileReader(getPathJarFile()+fileSep+"DataBase/SubjectJson.json"));
             ArrayList<Subject> retMap = new Gson().fromJson(

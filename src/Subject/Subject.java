@@ -1,6 +1,5 @@
 package Subject;
 
-import java.util.ArrayList;
 
 public class Subject {
     private String  code;
@@ -42,24 +41,14 @@ public class Subject {
         return code;
     }
 
-    public void setCode(String code) {
-        this.code = code;
-    }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public int getWeight() {
         return weight;
-    }
-
-    public void setWeight(int weight) {
-        this.weight = weight;
     }
 
 
